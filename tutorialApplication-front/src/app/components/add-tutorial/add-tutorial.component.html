@@ -1,0 +1,19 @@
+<form [formGroup]="form">
+    <mat-form-field>
+        <mat-label>Title</mat-label>
+        @if(form.controls.title.hasError('required')){
+            <mat-error>
+                This field is required
+            </mat-error>
+        }
+        <input matInput formControlName="title" type="text">
+    </mat-form-field>
+    <mat-form-field>
+        <mat-label>Description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Write a short description..."></textarea>
+    </mat-form-field>
+    <mat-checkbox color="primary" formControlName="published">Publié</mat-checkbox>
+    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="save()">
+        Save
+    </button>
+</form>

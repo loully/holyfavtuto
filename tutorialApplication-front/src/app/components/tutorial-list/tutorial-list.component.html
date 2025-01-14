@@ -1,0 +1,14 @@
+<mat-list>
+        @for(tutorial of (tutorials | async ); track tutorial.id){
+            <mat-list-item>
+                {{ tutorial.id }} {{ tutorial.title }}
+                <button type="button" class="btn btn-danger" (click)="delete(tutorial.id)" >Delete</button>
+            </mat-list-item>
+        } @empty {
+            <p>No tutorials</p>
+        }
+        @if(!errorMessage) {
+            <mat-error>{{errorMessage}}</mat-error>
+        }
+</mat-list>
+

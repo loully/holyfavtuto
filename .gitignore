@@ -1,0 +1,62 @@
+# Compiled output
+**/dist
+**/tmp
+**/out-tsc
+
+### Angular ###
+**/.angular/cache
+
+# Dependencies
+**/node_modules
+
+# IDEs and editors
+**/.idea/*
+**/.idea/runConfigurations/
+**/.idea/codeStyleSettings.xml
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+xcuserdata/
+*.sublime-workspace
+*.iws
+*.iml
+*.ipr
+
+
+# Misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+yarn-error.log
+testem.log
+/typings
+/reports
+/src/translations/template.*
+# /src/environments/.env.*
+
+# System Files
+**/.DS_Store
+**/Thumbs.db
+
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### Maven ###
+**/target
+**/log
