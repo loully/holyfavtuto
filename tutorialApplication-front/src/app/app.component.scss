@@ -1,0 +1,25 @@
+@import "../assets/styles/theme.scss";
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  background-color: $primary-color;
+
+  a.nav-link {
+    padding:30px 0;
+  }
+
+/*  mat-list-item {
+    div.mat-ripple-element{
+      top:0 !important;
+      left:0 !important;
+      display: none !important;
+    }
+  }*/
+
+  img#logo {
+    width: 30px;
+  }
+}
+
