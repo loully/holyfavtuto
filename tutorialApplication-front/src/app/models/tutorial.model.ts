@@ -2,7 +2,7 @@ export class Tutorial {
     id?:any;
     title?:string;
     description?:string;
-    published?:boolean;
+    urlImg?:string;
 
     constructor(init?:Partial<Tutorial>) {
         Object.assign(this, init);

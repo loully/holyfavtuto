@@ -1,14 +1,22 @@
-<mat-list>
+<mat-grid-list cols="3" rowHeight="3:2">
         @for(tutorial of (tutorials | async ); track tutorial.id){
-            <mat-list-item>
-                {{ tutorial.id }} {{ tutorial.title }}
+            <mat-grid-tile>
+                <mat-card>
+                    <mat-card-header>
+                        <mat-card-title>{{ tutorial.title }}</mat-card-title>
+                        <mat-card-subtitle>Category</mat-card-subtitle>
+                        <mat-icon mat-card-avatar>
+                            <img [ngSrc]='tutorial.urlImg ? tutorial.urlImg : "https://image.lexica.art/full_webp/891682c6-c6db-4247-8a99-0dc9232bcd37"' alt="Preview tutorial image" fill/>
+                        </mat-icon>
+                    </mat-card-header>
+                </mat-card>
                 <button type="button" class="btn btn-danger" (click)="delete(tutorial.id)" >Delete</button>
-            </mat-list-item>
+            </mat-grid-tile>
         } @empty {
             <p>No tutorials</p>
         }
         @if(!errorMessage) {
             <mat-error>{{errorMessage}}</mat-error>
         }
-</mat-list>
+</mat-grid-list>
 

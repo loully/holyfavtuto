@@ -4,7 +4,6 @@ import com.holytouch.tutorialApplication.dto.TutorialDto;
 import com.holytouch.tutorialApplication.exception.TutorialNotFoundException;
 import com.holytouch.tutorialApplication.model.Tutorial;
 import com.holytouch.tutorialApplication.repository.TutorialRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -23,7 +22,7 @@ public class TutorialService {
         if(tutorialRepository.existsByTitle(tutorialDto.getTitle())) {
             throw new IllegalArgumentException("Already existing Tutorial with the same name");
         }
-        Tutorial newTutorial = new Tutorial(tutorialDto.getTitle(), tutorialDto.getDescription(), tutorialDto.isPublished());
+        Tutorial newTutorial = new Tutorial(tutorialDto.getTitle(), tutorialDto.getDescription(), tutorialDto.getUrlImg());
         return tutorialRepository.save(newTutorial);
     }
 
@@ -40,7 +39,7 @@ public class TutorialService {
         if(tutorialRepository.findById(id).isPresent()){
             existingTutorial.setTitle(tutorialDto.getTitle());
             existingTutorial.setDescription(tutorialDto.getDescription());
-            existingTutorial.setPublished(tutorialDto.isPublished());
+            existingTutorial.setUrlImg(tutorialDto.getUrlImg());
         }
         return tutorialRepository.save(existingTutorial);
     }

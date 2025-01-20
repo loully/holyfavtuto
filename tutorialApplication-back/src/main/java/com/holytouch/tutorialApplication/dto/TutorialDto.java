@@ -16,6 +16,6 @@ public class TutorialDto {
     @NotNull
     private String description;
 
-    @NotNull
-    private boolean isPublished;
+    @NonNull
+    private String urlImg;
 }

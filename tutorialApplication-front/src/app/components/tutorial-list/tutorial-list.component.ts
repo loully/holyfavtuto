@@ -1,9 +1,12 @@
 import {Component, inject} from '@angular/core';
 import {TutorialService} from "../../services/tutorial.service";
 import {catchError, of} from "rxjs";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, NgOptimizedImage} from "@angular/common";
 import {MatListModule} from "@angular/material/list";
 import {MatInputModule} from "@angular/material/input";
+import {MatGridListModule} from "@angular/material/grid-list";
+import {MatCardModule} from "@angular/material/card";
+import {MatIconModule} from "@angular/material/icon";
 
 @Component({
     selector: 'app-tutorial-list',
@@ -11,7 +14,11 @@ import {MatInputModule} from "@angular/material/input";
     imports: [
         AsyncPipe,
         MatListModule,
-        MatInputModule
+        MatInputModule,
+        MatGridListModule,
+        MatCardModule,
+        MatIconModule,
+        NgOptimizedImage
     ],
     templateUrl: './tutorial-list.component.html',
     styleUrl: './tutorial-list.component.scss'

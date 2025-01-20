@@ -26,12 +26,12 @@ public class Tutorial {
     private String description;
 
     @NonNull
-    @Column(name = "is_published")
-    private boolean isPublished;
+    @Column(name= "url_img")
+    private String urlImg;
 
-    public Tutorial(String title, String description, boolean isPublished) {
+    public Tutorial(@NonNull String title, @NonNull String description, @NonNull String urlImg) {
         this.title = title;
         this.description = description;
-        this.isPublished = isPublished;
+        this.urlImg = urlImg;
     }
 }

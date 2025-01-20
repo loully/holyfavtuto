@@ -25,18 +25,18 @@ export class AddTutorialComponent {
 
   readonly form = this.fb.group({
     title: ["", [Validators.required]],
+    urlImg: [""],
     description: [""],
-    published: [false]
   });
 
   save():void{
     if(this.form.valid){
-      const { title, description, published } = this.form.value;
+      const { title, urlImg, description  } = this.form.value;
       this.service.addTutorial(
           {
             title: title!,
-            description: description!,
-            published: published ?? false
+            urlImg: urlImg ?? "",
+            description: description!
           }
       ).subscribe({
         next:() => {

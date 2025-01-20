@@ -26,7 +26,7 @@ class TutorialServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        tutorial = new Tutorial("Test Title", "Test Description", true);
+        tutorial = new Tutorial("Test Title", "Test Description", "");
     }
 
     @Test
