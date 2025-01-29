@@ -1,2 +1,22 @@
 @import "bootstrap/scss/bootstrap-grid";
 @import "bootstrap/scss/bootstrap";
+@import "assets/styles/theme.scss";
+
+html, body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+/* Custom, not in Material Theme */
+.toolbar {
+  background-color: $primary-color;
+}
+
+.highlight {
+  color: $secondary-color;
+}
+
+h1.display-1.custom-display-1 {
+  font-weight: bold;
+  color: $title-color;
+  text-align: center;
+}
