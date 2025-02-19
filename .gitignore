@@ -60,3 +60,6 @@ target/
 ### Maven ###
 **/target
 **/log
+
+### DB ###
+**/testdb.mv.db
