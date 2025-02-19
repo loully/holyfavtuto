@@ -1,18 +1,17 @@
 <h1 class="display-1 custom-display-1"><span class="highlight">Favorite</span> DIY tutorials</h1>
 <p>Check out this new branded website about my favorites DIY tutorials. No frills, just fresh design.</p>
-<mat-grid-list cols="3" rowHeight="3:2">
+<mat-grid-list cols="3" rowHeight="463px" gutterSize="16">
         @for(tutorial of (tutorials | async ); track tutorial.id){
             <mat-grid-tile>
                 <mat-card>
+                    <mat-card-content>
+                        <img [src]='tutorial.urlImg ? tutorial.urlImg : "https://image.lexica.art/full_webp/891682c6-c6db-4247-8a99-0dc9232bcd37"' alt="Tutorial cover"/>
+                    </mat-card-content>
                     <mat-card-header>
                         <mat-card-title>{{ tutorial.title }}</mat-card-title>
                         <mat-card-subtitle>Category</mat-card-subtitle>
-                        <mat-icon mat-card-avatar>
-                            <img [ngSrc]='tutorial.urlImg ? tutorial.urlImg : "https://image.lexica.art/full_webp/891682c6-c6db-4247-8a99-0dc9232bcd37"' alt="Preview tutorial image" fill/>
-                        </mat-icon>
                     </mat-card-header>
                 </mat-card>
-                <button type="button" class="btn btn-danger" (click)="delete(tutorial.id)" >Delete</button>
             </mat-grid-tile>
         } @empty {
             <p>No tutorials</p>
