@@ -1,7 +1,7 @@
  <mat-toolbar class="toolbar">
      <mat-nav-list>
          <mat-list-item>
-             <!--  Insert logo-->
+             <!--  TODO: Fix onclick logo behaviour - stop moving- -->
              <a mat-button disableRipple routerLink="/tutorials" class="nav-link" routerLinkActive="active" ariaCurrentWhenActive="page">
                  <img [src]="logoPath" alt="logo" id="logo"/>
              </a>
@@ -9,7 +9,6 @@
      </mat-nav-list>
 </mat-toolbar>
 
- <!-- Todo: Add button on the right bottom -->
  <button mat-icon-button class="add-button" routerLink="add" >
      <mat-icon class="add-icon">add</mat-icon>
  </button>
