@@ -23,3 +23,19 @@
   }
 }
 
+.add-button {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 1000;
+  background-color: #16608A;
+  border: #2B5272 1px solid;
+  border-radius: 16px;
+  color: white;
+  width: 65px;
+  height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
