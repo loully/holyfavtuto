@@ -1,12 +1,7 @@
  <mat-toolbar class="toolbar">
-     <mat-nav-list>
-         <mat-list-item>
-             <!--  TODO: Fix onclick logo behaviour - stop moving- -->
-             <a mat-button disableRipple routerLink="/tutorials" class="nav-link" routerLinkActive="active" ariaCurrentWhenActive="page">
+     <a mat-button disableRipple routerLink="/tutorials" class="nav-link" ariaCurrentWhenActive="page">
                  <img [src]="logoPath" alt="logo" id="logo"/>
              </a>
-         </mat-list-item>
-     </mat-nav-list>
 </mat-toolbar>
 
  <button mat-icon-button class="add-button" routerLink="add" >
