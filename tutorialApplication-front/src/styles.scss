@@ -1,6 +1,16 @@
+@use '@angular/material' as mat;
+
 @import "bootstrap/scss/bootstrap-grid";
 @import "bootstrap/scss/bootstrap";
 @import "assets/styles/theme.scss";
+
+@include mat.core();
+@include mat.all-component-themes(mat.define-light-theme((
+        color: (
+                primary: mat.define-palette(mat.$indigo-palette),
+                accent: mat.define-palette(mat.$pink-palette),
+        )
+)));
 
 html, body {
   font-family: 'Source Sans Pro', sans-serif;
@@ -19,4 +29,13 @@ h1.display-1.custom-display-1 {
   font-weight: bold;
   color: $title-color;
   text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  flex: 1 1 45%;
+  min-width: 200px;
 }

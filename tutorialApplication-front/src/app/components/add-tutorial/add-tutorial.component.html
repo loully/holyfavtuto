@@ -1,23 +1,41 @@
 <!-- TODO: Redesign the outpout of the add form -->
-<form [formGroup]="form">
-    <mat-form-field>
-        <mat-label>Title</mat-label>
+<form [formGroup]="form" class="add-form">
+    <h1 class="form-title">New tutorial</h1>
+    <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="title" type="text">
         @if(form.controls.title.hasError('required')){
             <mat-error>
                 This field is required
             </mat-error>
         }
-        <input matInput formControlName="title" type="text">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
         <mat-label>URL</mat-label>
-        <textarea matInput formControlName="urlImg" placeholder="Insert url of the image tutorial"></textarea>
+        <input matInput formControlName="urlImg" placeholder="Insert url of the image tutorial">
     </mat-form-field>
-    <mat-form-field>
+    <mat-form-field appearance="outline" class="full-width">
         <mat-label>Description</mat-label>
         <textarea matInput formControlName="description" placeholder="Write a short description..."></textarea>
     </mat-form-field>
-    <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid" (click)="save()">
-        Save
-    </button>
+    <div class="form-row">
+        <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Category</mat-label>
+            <mat-select formControlName="category">
+                @for (cat of categories; track $index) {
+                    <mat-option value="cat">{{cat}}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="half-width">
+            <mat-label>Image</mat-label>
+            <input matInput formControlName="img" placeholder="Insert image URL"/>
+        </mat-form-field>
+    </div>
+    <div class="submit-btn-container">
+        <button mat-flat-button color="primary" type="submit" [disabled]="form.invalid" (click)="save()">
+            Add
+        </button>
+    </div>
 </form>
