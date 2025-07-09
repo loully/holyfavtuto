@@ -10,8 +10,9 @@ export class TutorialService {
 
   tutorials = signal<Tutorial[]>([]);
   currentIndex = signal<number>(1);
+  categories = signal<string[]>([]);
 
-  private url = "http://localhost:8080/api/tutorials";
+  private url = "http://localhost:8080/api";
 
   constructor(private http:HttpClient) { }
 
@@ -22,7 +23,7 @@ export class TutorialService {
 
   //Fetch all tutorials from api
   fetchAllTutorials(): Observable<Tutorial[]> {
-    return this.http.get<Tutorial[]>(this.url).pipe(
+    return this.http.get<Tutorial[]>(`${this.url}/tutorials`).pipe(
       tap((data) => {
         this.tutorials.set(data);
       }),
@@ -35,7 +36,7 @@ export class TutorialService {
 
   //Get tutorial in local
   getTutorial(id:number) : Observable<Tutorial> | undefined {
-    return this.http.get<Tutorial>(`${this.url}/${id}`);
+    return this.http.get<Tutorial>(`${this.url}/tutorials/${id}`);
   }
 
   //Add tutorial in local
@@ -50,13 +51,13 @@ export class TutorialService {
   //Add tutorial to api
   addTutorial(tutorial:Tutorial): Observable<Tutorial> {
     console.log("Tutorial sent: ",tutorial);
-    return this.http.post<Tutorial>(this.url, tutorial)
+    return this.http.post<Tutorial>(`${this.url}/tutorials`, tutorial)
         .pipe(
         catchError((error) => {
           console.error("Error during POST request:", error);
           return throwError(error);
         })
-    );;
+    )
   }
 
   //Update tutorial in local
@@ -70,7 +71,7 @@ export class TutorialService {
 
   //Update tutorial to api
   updateTutorial(tutorial:Tutorial) {
-    return this.http.put<Tutorial>(`${this.url}/${tutorial.id}`, tutorial);
+    return this.http.put<Tutorial>(`${this.url}/tutorials/${tutorial.id}`, tutorial);
   }
 
   //Delete tutorial locally
@@ -83,11 +84,15 @@ export class TutorialService {
   //Delete tutorial through api
   deleteTutorial(id: number){
     console.log("request to delete tutorial id:"+ id + "using this url : "+`${this.url}/${id}`);
-    return this.http.delete<void>(`${this.url}/${id}`).pipe(
+    return this.http.delete<void>(`${this.url}/tutorials/${id}`).pipe(
         catchError((err) => {
           console.log("Error while deleting tutorial", err);
               return throwError(() => err);
         })
     );
+  }
+
+  getCategories(){
+    this.http.get<string[]>(`${this.url}/categories`).subscribe((cat) => this.categories.set(cat));
   }
 }

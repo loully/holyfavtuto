@@ -19,9 +19,6 @@ import java.util.Optional;
 public class TutorialController {
 
     @Autowired
-    TutorialRepository tutorialRepository;
-
-    @Autowired
     TutorialService tutorialService;
 
     @PostMapping ("/tutorials")

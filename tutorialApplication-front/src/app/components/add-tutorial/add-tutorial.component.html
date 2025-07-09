@@ -23,7 +23,7 @@
             <mat-label>Category</mat-label>
             <mat-select formControlName="category">
                 @for (cat of categories; track $index) {
-                    <mat-option value="cat">{{cat}}</mat-option>
+                    <mat-option value="cat">{{cat | titlecase}}</mat-option>
                 }
             </mat-select>
         </mat-form-field>

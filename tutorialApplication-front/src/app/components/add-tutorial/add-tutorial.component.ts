@@ -6,6 +6,8 @@ import {TutorialService} from "../../services/tutorial.service";
 import {MatCheckboxModule} from "@angular/material/checkbox";
 import {Router} from "@angular/router";
 import {MatSelectModule} from "@angular/material/select";
+import {Category} from "../../models/category";
+import {TitleCasePipe} from "@angular/common";
 
 @Component({
   selector: 'app-add-tutorial',
@@ -15,7 +17,8 @@ import {MatSelectModule} from "@angular/material/select";
     MatInputModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatSelectModule
+    MatSelectModule,
+    TitleCasePipe
   ],
   templateUrl: './add-tutorial.component.html',
   styleUrl: './add-tutorial.component.scss'
@@ -24,7 +27,7 @@ export class AddTutorialComponent {
   private fb = inject(FormBuilder);
   private service = inject(TutorialService);
   private router = inject(Router);
-  protected categories = ['Food', 'Tech', 'Deco'];
+  protected categories = Object.values(Category);
 
   readonly form = this.fb.group({
     title: ["", [Validators.required]],
