@@ -1,5 +1,6 @@
 package com.holytouch.tutorialApplication.dto;
 
+import com.holytouch.tutorialApplication.model.Category;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
@@ -18,4 +19,7 @@ public class TutorialDto {
 
     @NonNull
     private String urlImg;
+
+    @NonNull
+    private Category category;
 }

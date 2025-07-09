@@ -29,9 +29,15 @@ public class Tutorial {
     @Column(name= "url_img")
     private String urlImg;
 
-    public Tutorial(@NonNull String title, @NonNull String description, @NonNull String urlImg) {
+    @NonNull
+    @Enumerated(EnumType.STRING)
+    @Column(name= "category")
+    private Category category;
+
+    public Tutorial(@NonNull String title, @NonNull String description, @NonNull String urlImg, @NonNull Category category) {
         this.title = title;
         this.description = description;
         this.urlImg = urlImg;
+        this.category = category;
     }
 }

@@ -22,7 +22,7 @@ public class TutorialService {
         if(tutorialRepository.existsByTitle(tutorialDto.getTitle())) {
             throw new IllegalArgumentException("Already existing Tutorial with the same name");
         }
-        Tutorial newTutorial = new Tutorial(tutorialDto.getTitle(), tutorialDto.getDescription(), tutorialDto.getUrlImg());
+        Tutorial newTutorial = new Tutorial(tutorialDto.getTitle(), tutorialDto.getDescription(), tutorialDto.getUrlImg(), tutorialDto.getCategory());
         return tutorialRepository.save(newTutorial);
     }
 
@@ -40,6 +40,7 @@ public class TutorialService {
             existingTutorial.setTitle(tutorialDto.getTitle());
             existingTutorial.setDescription(tutorialDto.getDescription());
             existingTutorial.setUrlImg(tutorialDto.getUrlImg());
+            existingTutorial.setCategory(tutorialDto.getCategory());
         }
         return tutorialRepository.save(existingTutorial);
     }

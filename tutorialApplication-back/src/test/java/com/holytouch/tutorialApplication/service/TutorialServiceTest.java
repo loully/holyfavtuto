@@ -1,5 +1,6 @@
 package com.holytouch.tutorialApplication.service;
 
+import com.holytouch.tutorialApplication.model.Category;
 import com.holytouch.tutorialApplication.model.Tutorial;
 import com.holytouch.tutorialApplication.repository.TutorialRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,7 +27,7 @@ class TutorialServiceTest {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        tutorial = new Tutorial("Test Title", "Test Description", "");
+        tutorial = new Tutorial("Test Title", "Test Description", "", Category.COOKING);
     }
 
     @Test
