@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {TutorialService} from "../../services/tutorial.service";
 import {catchError, of} from "rxjs";
-import {AsyncPipe, NgOptimizedImage, TitleCasePipe} from "@angular/common";
+import {AsyncPipe, TitleCasePipe} from "@angular/common";
 import {MatListModule} from "@angular/material/list";
 import {MatInputModule} from "@angular/material/input";
 import {MatGridListModule} from "@angular/material/grid-list";
